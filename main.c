@@ -1,33 +1,25 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "linkedList.h"
 
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
-struct Book {
-	int number;
-	char title[20];
-};
 
 int main(int argc, char *argv[]) {
 	
-	struct Book *p;
-	p= (struct Book*)malloc(2*sizeof(struct Book));
-
+	int n[5];
 	
-	if (p ==NULL)
-	{
-		printf("메모리 할당 오류\n");
-		return;
-	}
+	printf("input 5 integers : ");
+	scanf("%d %d %d %d %d", n, n+1, n+2, n+3, n+4);
 	
-	p->number =1;
-	strcpy(p->title, "c Programming");
+	insertDataToTail(n[0]);
+	insertDataToTail(n[1]);
+	insertDataToTail(n[2]);
+	insertDataToTail(n[3]);
+	insertDataToTail(n[4]);
 	
-	(p+1)->number = 2;
-	strcpy((p+1)->title, "Electronics");
+	print_list();
+	print_node(2);
 	
-	printf("%s %s\n", p->title, (p+1)->title);
-	free(p);
-	return;
-	
+	return 0;
 }
